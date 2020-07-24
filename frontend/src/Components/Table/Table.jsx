@@ -3,7 +3,7 @@ import './Table.css';
 
 const Table = (props) => (
   <div>
-    <h2 className='main-title'>User list</h2>
+    <h2 className='main-title'>Lista de Usuários</h2>
     <table className='tabela'>
       <thead className='cabecalho'>
         <tr>
@@ -21,8 +21,8 @@ const Table = (props) => (
               <td className='login'>{ user.username }</td>
               <td className='email'>{ user.email }</td>
               <td className='button'>
-                <button className="button muted-button" onClick={() => props.editUser(user)}>Edit</button>
-                <button className="button muted-button" onClick={() => props.deleteUser(user.id)}>Delete</button>
+                <button className="button muted-button" onClick={() => props.editUser(user)}>Editar</button>
+                <button className="button muted-button" onClick={() => props.deleteUser(user.id)}>Deletar</button>
               </td>
             </tr>
           ))
