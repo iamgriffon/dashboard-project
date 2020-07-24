@@ -1,0 +1,53 @@
+.input {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  width: 70%;
+  height: 20px;
+  font-size: 14px;
+  color: hsl(0, 3%, 13%);
+  border: 0;
+  border-bottom: 1px solid black;
+  padding-left: 10px;
+  display: flex;
+  margin-top: 10px;
+}
+
+.form {
+  border: 1px solid white;
+  margin: 10px 10px;
+  padding: 10px 15px;
+}
+
+.submit {
+  border: 0;
+  margin-top: 30px;
+  background: black;
+  border: 0;
+  margin-bottom: 10px;
+  height: 32px;
+  color: white;
+  justify-content: center;
+  width: 45%;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background 0.5s;
+  align-content: center;
+}
+
+.cancel {
+  background: white;
+  color: black;
+  transition: background 0.5s;
+}
+
+.submit:hover{
+    background: purple;
+    color: black;
+}
+
+.cancel:hover{
+  background: orange;
+  color: white
+}

@@ -1,0 +1,28 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "name": "Gustavo",
+      "username": "gustavodupin",
+      "email": "guusilveira@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Tania",
+      "username": "perdiojogo",
+      "email": "the@game.com"
+    },
+    {
+      "id": 3,
+      "name": "TESTE",
+      "username": "teste",
+      "email": "teste@email.com"
+    },
+    {
+      "name": "Teste",
+      "username": "testeuser123",
+      "email": "kuroro467@hotmail.com",
+      "id": 4
+    }
+  ]
+}
