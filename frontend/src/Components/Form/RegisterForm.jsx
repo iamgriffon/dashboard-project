@@ -3,7 +3,7 @@ import './Form.css'
 
 const RegisterForm = (props) => {
 
-  const initialFormState = { id: null, name: '', username: '', email: '' };
+  const initialFormState = { name: '', username: '', email: '' };
   const [user, setUser] = useState(initialFormState)
 
   const handleChange = (event) => {
@@ -15,7 +15,6 @@ const RegisterForm = (props) => {
     event.preventDefault();
     if(!user.name || !user.email || !user.username) return;
     props.addUser(user);
-    setUser(initialFormState);
   }
 
   return (

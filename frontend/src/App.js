@@ -3,52 +3,58 @@
   //Form = componente para cadastro;
   //EditForm
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Table from './Components/Table/Table';
 import RegisterForm from './Components/Form/RegisterForm';
 import EditForm from './Components/Form/EditForm';
+import Api from './Services/Api';
+
 
 const App = () => {
- 
-  const UserData = [
-    { id: 1, name: 'Gustavo', username: 'gustavodupin', email: 'guusilveira@gmail.com' },
-    { id: 2, name: 'Tania', username: 'perdiojogo', email: 'the@game.com' },
-    { id: 3, name: 'TESTE', username: 'teste', email: 'teste@email.com' },
-  ]
+  const [users, setUsers] = useState([]);
 
-  //Estado para armazenar os usuários
-  const [users, setUsers] = useState(UserData);
-
-  var db = JSON.stringify(UserData)
-  console.log(db);
-  
-  //função para adicionar os usuários cadastrados
-  const addUser = (user) => {
-    user.id = users.length + 1
-    setUsers([...users, user])
+  //função para inserir novos usuários
+  const fetch = async() => {
+      await Api.get('/')
+    .then(res => setUsers(res.data));
   }
 
-  //função para deletar os usuários cadastrado
-  const deleteUser = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
+  //Função para inserir novos usuários
+  const addUser = async(user) =>{
+    await Api.post('/', user);
+    fetch();
   }
+
+  //função para deletar os usuários cadastrados
+  const deleteUser = async(id) => {
+    await Api.delete(`/${id}`);
+    fetch();
+  };
   
   //Estados para ser feita a edição de usuários
   const [editing, setEditing] = useState(false);
   const initialEditState = { id: null, name: '', username: '', email: '' }
   const [currentUser, setCurrentUser] = useState(initialEditState);
 
+  //Função para atualizar os campos do formulário de edição
   const editUser = (user) => {
     setEditing(true)
-    setCurrentUser({ id: user.id, name: user.name, username: user.username, email: user.email })
+    setCurrentUser({ id: user.id, name: user.name, username: user.username, email: user.email });
+    fetch();
   }
 
     //Função para atualizar o usuário
-  const updateUser = (id, updatedUser) => {
-    setEditing(false)
-    setUsers(users.map((user) => (user.id === id ? updatedUser : user)))
+  const updateUser = async(id, updatedUser) => {
+    setEditing(false);
+    await Api.put(`/${id}`, updatedUser);
+    fetch();
   }
+
+  useEffect(() => {
+    fetch()
+  },[]);
+
 
    return (
     <div className="container">

@@ -28,7 +28,7 @@ const Table = (props) => (
           ))
         ) : (
             <tr>
-              <td class='no-user'colSpan={ 4 }>No users</td>
+              <td className='no-user'colSpan={ 4 }>No users</td>
             </tr>
           ) }
       </tbody>
