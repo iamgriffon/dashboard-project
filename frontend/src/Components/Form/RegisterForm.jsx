@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import './Form.css'
 
 const RegisterForm = (props) => {
-
+  //Estado inicial do usuário a ser registrado, não há ID aqui porque o servidor atrela um automaticamente
   const initialFormState = { name: '', username: '', email: '' };
+
+  //Hook do estado inicial
   const [user, setUser] = useState(initialFormState)
 
+  //função para atualizar o estado dos campos do formulário
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   }
 
+  //Função recebida por hooks que envia o formulário do usuário para o banco de dados;
   const handleSubmit = event => {
     event.preventDefault();
     if(!user.name || !user.email || !user.username) return;
