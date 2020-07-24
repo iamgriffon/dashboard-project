@@ -23,7 +23,7 @@ const RegisterForm = (props) => {
 
   return (
     <div className="AddUser">
-      <h2 className='main-title'>Add user</h2>
+      <h2 className='main-title'>Cadastrar Usuário</h2>
       <form className='form' onSubmit={handleSubmit}>
         <label htmlFor="name">Seu nome: </label>
         <input type="text" name="name" id="" className='input' value={user.name} onChange={handleChange}/><br />
