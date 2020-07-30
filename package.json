@@ -13,8 +13,7 @@
     "install:all": "npm run install:front && npm run install:back",
     "build":"npm run build:front",
     "client": "concurrently --kill-others-on-fail \"npm run front\" \"npm run back\"",
-    "start": "npm run front && npm run back",
-    "heroku-postbuild":"npm run install:all && npm run build"
+    "start": "npm run front && npm run back"
   },
   "repository": {
     "type": "git",
