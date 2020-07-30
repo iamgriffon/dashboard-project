@@ -1,7 +1,7 @@
-  //Nessa página ficara contido ambos os componentes de registro e listagem;
-  //Table = componente de listagem, edição e deleção
-  //Form = componente para cadastro;
-  //EditForm
+//Nessa página ficara contido ambos os componentes de registro e listagem;
+//Table = componente de listagem, edição e deleção
+//Form = componente para cadastro;
+//EditForm
 
 import React, { useState, useEffect } from 'react';
 import './App.css';
@@ -15,23 +15,23 @@ const App = () => {
   const [users, setUsers] = useState([]);
 
   //função para inserir novos usuários
-  const fetch = async() => {
-      await Api.get('/')
-    .then(res => setUsers(res.data));
+  const fetch = async () => {
+    await Api.get('/')
+      .then(res => setUsers(res.data));
   }
 
   //Função para inserir novos usuários
-  const addUser = async(user) =>{
+  const addUser = async (user) => {
     await Api.post('/', user);
     fetch();
   }
 
   //função para deletar os usuários cadastrados
-  const deleteUser = async(id) => {
+  const deleteUser = async (id) => {
     await Api.delete(`/${id}`);
     fetch();
   };
-  
+
   //Estados para ser feita a edição de usuários
   const [editing, setEditing] = useState(false);
   const initialEditState = { id: null, name: '', username: '', email: '' }
@@ -44,8 +44,8 @@ const App = () => {
     fetch();
   }
 
-    //Função para atualizar o usuário
-  const updateUser = async(id, updatedUser) => {
+  //Função para atualizar o usuário
+  const updateUser = async (id, updatedUser) => {
     setEditing(false);
     await Api.put(`/${id}`, updatedUser);
     fetch();
@@ -53,18 +53,18 @@ const App = () => {
 
   useEffect(() => {
     fetch()
-  },[]);
+  }, []);
 
 
-   return (
+  return (
     <div className="container">
       <h1 className='main-title'>Exemplo básico de CRUD React APP</h1>
       <div className='content'>
-        { editing? 
-        ( <EditForm setEditing={setEditing} currentUser={currentUser} updateUser={updateUser}/>) :
-        (<RegisterForm addUser={addUser} />)
+        { editing ?
+          (<EditForm setEditing={ setEditing } currentUser={ currentUser } updateUser={ updateUser } />) :
+          (<RegisterForm addUser={ addUser } />)
         }
-        <Table users={ users } deleteUser={deleteUser} editUser={editUser}/>
+        <Table users={ users } deleteUser={ deleteUser } editUser={ editUser } />
       </div>
     </div>
   )
