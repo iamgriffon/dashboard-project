@@ -4,7 +4,8 @@
   "description": "backend of my application",
   "main": "index.js",
   "scripts": {
-    "start":"cd src && nodemon index.js",
+    "start":"cd src && node index.js",
+    "server": "cd src && nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
