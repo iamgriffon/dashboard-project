@@ -13,7 +13,7 @@
     "install:back": "cd backend && npm install",
     "install:all": "npm run install:front && npm run install:back",
     "build":"npm run build:front && npm run build:front ",
-    "dev": "concurrently --kill-others-on-fail \"npm run front\" \"npm run back\"",
+    "start": "concurrently --kill-others-on-fail \"npm run front\" \"npm run back\"",
     "heroku-postbuild":"npm run install:all --no-shrinkwrap && npm run build"
   },
   "repository": {
